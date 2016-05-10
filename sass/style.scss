@@ -1,0 +1,176 @@
+@import "bootstrap";
+@import "bootstrap/theme";
+//@font-face {
+//  font-family: 'Glyphicons Halflings';
+//  src: url(../fonts/glyphicons-halflings-regular.eot);
+//  src: url(../fonts/glyphicons-halflings-regular.eot) format("embedded-opentype"), url(../fonts/glyphicons-halflings-regular.woff2) format("woff2"), url(../fonts/glyphicons-halflings-regular.woff) format("woff"), url(../fonts/glyphicons-halflings-regular.ttf) format("truetype"), url(../fonts/glyphicons-halflings-regular.svg) format("svg");
+//}
+$red: #D1212C;
+$grey: rgba(0, 0, 0, 0.1);
+$grey-dark: rgba(0, 0, 0, 0.6);
+@mixin flex-center {
+  display: -ms-flexbox;
+}
+
+//* {
+//  transition: all 0.2s ease;
+//}
+//html,
+//body {
+//  height: 100%;
+//}
+//.carousel,
+//.item,
+//.active {
+//  height: 100%;
+//}
+
+body {
+  min-width: 320px;
+}
+
+/* --- carousel --- */
+
+#myCarousel {
+  padding-bottom: 0px;
+  ol {
+    margin-bottom: 50px;
+  }
+}
+
+.carousel-inner {
+  height: 100%;
+}
+
+.fill {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.carousel-caption {
+  top: 20%;
+}
+
+
+/* --- carousel-indicators --- */
+
+.carousel-indicators {
+  li {
+    display: inline-block;
+    padding: 10px;
+    color: white;
+    opacity: .7;
+  }
+  .active {
+    opacity: 1;
+  }
+}
+
+#typo,
+#rwd,
+#ux {
+  span {
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 10px;
+  }
+}
+
+#typo {
+  span {
+    background: red;
+  }
+}
+
+#rwd {
+  span {
+    background: blue;
+  }
+}
+
+#ux {
+  span {
+    background: green;
+  }
+}
+
+
+/* --- navigation --- */
+
+nav {
+  margin-top: -50px;
+}
+
+.navbar {
+  border-radius: 0 !important;
+}
+
+.affix {
+  margin-top: 0;
+  top: 0px;
+  width: 100%;
+  z-index: 1000;
+}
+
+@media all and (max-width: 767px) and (min-width: 320px) {
+  /* keeps carousel full widget on smaller screens */
+  body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* --- carousel --- */
+  .carousel-caption {
+    top: 10%;
+    width: 80%;
+    margin-left: -5%;
+  }
+  .carousel-indicators {
+    width: 80%;
+    margin-left: -40%;
+    li {
+      display: block;
+    }
+  }
+}
+
+@media all and (min-width: 767px) {}
+
+@media all and (max-width: 995px) and (min-width: 768px) {
+  /* --- carousel-indicator --- */
+  .carousel-indicators {
+    width: 90%;
+    margin-left: -45%;
+    li {
+      width: 32%;
+    }
+    .active {}
+  }
+  #typo:before {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: white;
+    display: inline-block;
+  }
+}
+
+@media all and (min-width: 996px) {
+  #typo {
+    &:before {
+      content: '';
+      display: block;
+      left: 0;
+      width: 50px;
+      height: 50px;
+      background: white;
+    }
+  }
+}
+
+@media all and (max-width: 1199px) and (min-width: 994px) {}
+
+@media all and (min-width: 1200px) {}
