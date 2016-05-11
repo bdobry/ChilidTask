@@ -90,6 +90,22 @@
 
   <div class="container">
     <div class="row">
+
+      <div class="col-sm-12">
+        <div class="outer">
+          <div class="box">
+            <p>BOX NAME 1</p>
+            <div class="box-content">
+              <p>BOX TITasdasdLE</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+
+
+
       <footer>
         <div class="col-sm-3 col-xs-10 col-xs-push-1 col-sm-push-0">
           <img src="img/logo.png" class="img-responsive" alt="the fashion store">
@@ -199,7 +215,7 @@
     /* Sticky navgiation toggle */
     $nav.on('click', function () {
       toggle = !toggle;
-      if ($(window).scrollTop() < 235 && toggle==true) {
+      if ($(window).scrollTop() < 235 && toggle == true) {
         $('nav').addClass("slide-up");
       } else {
         $('nav').removeClass("slide-up");
@@ -209,7 +225,7 @@
     $(window).scroll(function () {
       if ($(window).scrollTop() >= 235) {
         $('nav').removeClass("slide-up");
-      } else if ($(window).scrollTop() < 235 && toggle==true) {
+      } else if ($(window).scrollTop() < 235 && toggle == true) {
         $('nav').addClass("slide-up");
       }
     });
