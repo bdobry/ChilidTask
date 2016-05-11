@@ -24,10 +24,10 @@ $grey-dark: rgba(0, 0, 0, 0.6);
 //.active {
 //  height: 100%;
 //}
-
 body {
   min-width: 320px;
 }
+
 
 /* --- carousel --- */
 
@@ -106,6 +106,13 @@ nav {
 
 .navbar {
   border-radius: 0 !important;
+}
+
+.slide-up {
+  position: fixed;
+  bottom: -20px;
+  width: 100%;
+  z-index: 1000;
 }
 
 .affix {

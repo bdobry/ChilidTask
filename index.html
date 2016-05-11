@@ -8,7 +8,7 @@
   <meta name="author" content="">
   <link rel="shortcut icon" href="assets/ico/favicon.ico">
 
-  <title>The fashion store</title>
+  <title>Chilid</title>
 
   <!-- Bootstrap core CSS -->
   <link href="css/style.css" rel="stylesheet">
@@ -193,12 +193,78 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="assets/js/docs.min.js"></script>
   <script>
+    //    $('body').css('background-color: white !important;');
+    //    $nav = $('.navbar');
+    //    $("button.navbar-toggle").on('click', function () {
+    //      //      alert(1);
+    //    });
+  </script>
+
+  <script>
+    var $nav = $('button.navbar-toggle');
+    var height = $('.container-full').outerHeight(true);
+    var toggle;
+
     /* Sticky navgiation toggle */
-    //    $(window).scroll(function () {
-    //      if ($(this).scrollTop() < 1) {
-    //        $('nav').addClass("navbar-fixed-bottom");
+    $nav.on('click', function () {
+      toggle = !toggle;
+      if ($(window).scrollTop() < 260) {
+        $('nav').addClass("slide-up");
+      } else {
+        $('nav').removeClass("slide-up");
+      }
+    });
+
+    $(window).scroll(function () {
+      if ($(window).scrollTop() >= 260) {
+        $('nav').removeClass("slide-up");
+      } else if ($(window).scrollTop() < 260 && toggle==true) {
+        $('nav').addClass("slide-up");
+      }
+    });
+
+
+    //    
+    //    /* Sticky navgiation toggle */
+    //    $('button.navbar-toggle').on('click', function () {
+    //      alert(1);
+    //      if ($(window).height() - top < 260) {
+    //        alert(2);
+    //        $('nav').addClass("slide-up");
     //      } else {
-    //        $('nav').removeClass("navbar-fixed-bottom");
+    //        $('nav').removeClass("slide-up");
+    //        alert(3);
+    //      }
+    //    });
+
+
+
+
+
+
+    //    $(window).scroll(function () {
+    //      if ($('.container-full').offset().top > 260) {
+    //        $('nav').addClass("slide-up");
+    //      } else {
+    //        $('nav').removeClass("slide-up");
+    //      }
+    //    });
+
+
+
+    //    $('.main-nav-menu').toggleClass('active');
+    //    var stickyTop = $('nav').offset().top;
+    //
+    //    $(window).scroll(function () {
+    //      if ($(this).scrollTop() >= stickyTop) {
+    //        $('nav').css({
+    //          $('nav').addClass("slide-up"),
+    //          alert(1)
+    //        });
+    //      } else {
+    //        $('nav').css({
+    //          $('nav').removeClass("slide-up")
+    //        });
     //      }
     //    });
 

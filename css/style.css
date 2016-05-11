@@ -6601,6 +6601,12 @@ nav {
 .navbar {
   border-radius: 0 !important; }
 
+.slide-up {
+  position: fixed;
+  bottom: -20px;
+  width: 100%;
+  z-index: 1000; }
+
 .affix {
   margin-top: 0;
   top: 0px;
