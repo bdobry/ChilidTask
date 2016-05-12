@@ -8,6 +8,7 @@
 $red: #D1212C;
 $grey: rgba(0, 0, 0, 0.1);
 $grey-dark: rgba(0, 0, 0, 0.6);
+//
 @mixin content-box ($color) {
   border: 1px solid $color;
   display: inline-block;
@@ -238,6 +239,7 @@ nav {
 .frames {
   background: grey;
   padding-top: 40px;
+  margin-bottom: 30px;
 }
 
 .frame {
@@ -346,6 +348,49 @@ nav {
   }
 }
 
+
+/* --- button images --- */
+
+.img-button {
+  max-height: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+  position: relative;
+  img {
+    width: 100%;
+    height: auto;
+    z-index: -3;
+  }
+}
+
+.img-button-left {
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    z-index: 5;
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0), transparent), linear-gradient(to top right, rgba(255, 255, 255, 0.5) 50%, rgba(0, 0, 0, 0) 50%);
+  }
+}
+
+.img-button-right {
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    z-index: 5;
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0), transparent), linear-gradient(to bottom right, rgba(255, 255, 255, 0.5) 50%, rgba(0, 0, 0, 0) 50%);
+  }
+}
+
 // mobile
 @media all and (max-width: 767px) and (min-width: 320px) {
   /* keeps carousel full widget on smaller screens */
@@ -353,7 +398,7 @@ nav {
     padding-left: 0;
     padding-right: 0;
   }
-  /* --- carousel --- */
+  /* --- carousel mobile --- */
   .carousel-caption {
     top: 10%;
     width: 80%;
@@ -366,8 +411,15 @@ nav {
       display: block;
     }
   }
-  /* --- 4 boxes --- */
+  /* --- 4 boxes mobile --- */
+  .outer {
+    bottom: 0;
+    left: 0;
+    top: 100%;
+  }
   .box {
+    position: relative;
+    display: inline-block;
     width: 50px;
     height: 50px;
     span {
@@ -375,10 +427,8 @@ nav {
     }
   }
   .box-one {
-    display: block !important;
   }
   .box-two {
-    display: block !important;
   }
   .box-content {
     width: 100%;
@@ -388,17 +438,12 @@ nav {
   }
 }
 
-.col-clear {
-  margin: 0;
-  padding: 0;
-}
-
 // over mobile
 @media all and (min-width: 767px) {}
 
 // tablets
-@media all and (max-width: 995px) and (min-width: 768px) {
-  /* --- carousel-indicator --- */
+@media all and (max-width: 992px) and (min-width: 768px) {
+  /* --- carousel-indicator tablet --- */
   .carousel-indicators {
     width: 90%;
     margin-left: -45%;
@@ -421,6 +466,7 @@ nav {
     left: 0;
     top: 58px;
   }
+  /* --- 4 frames mobile tablet --- */
   .frame {
     height: 200px;
   }
@@ -445,6 +491,26 @@ nav {
       }
     }
   }
+  /* --- button images tablet--- */
+  .img-button-right {
+    &:after {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .img-button-left {
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+      background-image: linear-gradient(90deg, rgba(0, 0, 0, 0), transparent), linear-gradient(to bottom left, rgba(255, 255, 255, 0.5) 50%, rgba(0, 0, 0, 0) 50%);
+    }
+  }
 }
 
 // over tablets
@@ -461,13 +527,15 @@ nav {
   }
 }
 
-@media all and (max-width: 1199px) and (min-width: 996px) {
+@media all and (max-width: 1199px) and (min-width: 993px) {
+  /* --- 4 boxes tablet big --- */
   .box-content {
     width: 100%;
     height: 62%;
     left: 0;
     top: 58px;
   }
+  /* --- 4 frames tablet big --- */
   .frame {
     height: 200px;
   }
@@ -485,7 +553,7 @@ nav {
       margin-top: auto;
       margin-bottom: auto;
       margin-left: 10px;
-      width: 40%;
+      width: 38%;
       height: 90%;
       img {
         position: relative;
@@ -494,7 +562,30 @@ nav {
       }
     }
   }
+  /* --- button images tablet big--- */
+  .img-button-right {
+    &:after {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .img-button-left {
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+      background-image: linear-gradient(90deg, rgba(0, 0, 0, 0), transparent), linear-gradient(to bottom left, rgba(255, 255, 255, 0.5) 50%, rgba(0, 0, 0, 0) 50%);
+    }
+  }
 }
+
+
+/* --- desktop --- */
 
 @media all and (min-width: 1200px) {
   .frame {
@@ -533,4 +624,33 @@ nav {
     margin: auto;
     top: auto;
   }
+  /* --- button images desktop --- */
+  .img-button-right {
+    &:after {
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(90deg, rgba(0, 0, 0, 0), transparent), linear-gradient(to top right, rgba(255, 255, 255, 0.5) 50%, rgba(0, 0, 0, 0) 50%);
+    }
+  }
+  .img-button-left {
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+      background-image: linear-gradient(90deg, rgba(0, 0, 0, 0), transparent), linear-gradient(to top left, rgba(255, 255, 255, 0.5) 50%, rgba(0, 0, 0, 0) 50%);
+    }
+  }
+}
+
+
+/* --- nesting margin cleaner --- */
+
+.col-clear {
+  margin: 0;
+  padding: 0;
 }
