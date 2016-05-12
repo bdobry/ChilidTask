@@ -8,8 +8,16 @@
 $red: #D1212C;
 $grey: rgba(0, 0, 0, 0.1);
 $grey-dark: rgba(0, 0, 0, 0.6);
-@mixin flex-center {
-  display: -ms-flexbox;
+@mixin content-box ($color) {
+  border: 1px solid $color;
+  display: inline-block;
+  pointer-events: none;
+}
+
+*:before,
+*:after {
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
 }
 
 //* {
@@ -122,6 +130,108 @@ nav {
   z-index: 1000;
 }
 
+
+/* --- 4 boxes --- */
+
+.outer {
+  width: 100%;
+  height: 300px;
+  position: relative;
+}
+
+.box-content {
+  display: none;
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  left: 10%;
+  top: 10%;
+  background: white;
+  z-index: 1;
+  padding: 15px;
+  h3 {
+    font-size: 15px;
+  }
+}
+
+.box {
+  width: 150px;
+  height: 60px;
+  position: absolute;
+  border: 1px solid white;
+  &:hover {
+    &:after {
+      content: '';
+      background-color: white;
+      z-index: 2;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+    p {
+      z-index: 3;
+    }
+  }
+  p {
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    color: black;
+    padding: 5px;
+  }
+}
+
+.box-one {
+  top: 0;
+  left: 0;
+  background: blue;
+  &:hover {
+    border: 1px solid blue;
+    ~ .content-one {
+      @include content-box(blue);
+    }
+  }
+}
+
+.box-two {
+  top: 0;
+  right: 0;
+  background: red;
+  &:hover {
+    border: 1px solid red;
+    ~ .content-two {
+      @include content-box(red);
+    }
+  }
+}
+
+.box-three {
+  bottom: 0;
+  left: 0;
+  background: yellow;
+  &:hover {
+    border: 1px solid yellow;
+    ~ .content-three {
+      @include content-box(yellow);
+    }
+  }
+}
+
+.box-four {
+  bottom: 0;
+  right: 0;
+  background: green;
+  &:hover {
+    border: 1px solid green;
+    ~ .content-four {
+      @include content-box(green);
+    }
+  }
+}
+
+// mobile
 @media all and (max-width: 767px) and (min-width: 320px) {
   /* keeps carousel full widget on smaller screens */
   body {
@@ -143,8 +253,10 @@ nav {
   }
 }
 
+// over mobile
 @media all and (min-width: 767px) {}
 
+// tablets
 @media all and (max-width: 995px) and (min-width: 768px) {
   /* --- carousel-indicator --- */
   .carousel-indicators {
@@ -163,8 +275,15 @@ nav {
     background: white;
     display: inline-block;
   }
+  .box-content {
+    width: 100%;
+    height: 62%;
+    left: 0;
+    top: 58px;
+  }
 }
 
+// over tablets
 @media all and (min-width: 996px) {
   #typo {
     &:before {
@@ -178,92 +297,13 @@ nav {
   }
 }
 
-@media all and (max-width: 1199px) and (min-width: 994px) {}
+@media all and (max-width: 1199px) and (min-width: 996px) {
+  .box-content {
+    width: 100%;
+    height: 62%;
+    left: 0;
+    top: 58px;
+  }
+}
 
 @media all and (min-width: 1200px) {}
-
-.outer {
-  position: relative;
-}
-
-.box {
-  width: 150px;
-  height: 60px;
-  border: 3px solid black;
-  position: absolute;
-  float: left;
-  z-index: 2;
-  &:after {
-    content: '';
-    background-color: grey;
-    z-index: -1;
-    position:absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-  }
-  &:hover .box-content {
-    display: block;
-  }
-  p {
-    color: white;
-    padding: 19px;
-  }
-}
-
-.box-content {
-//  display: none;
-  width: 300px;
-  height: 100px;
-  border: 3px solid black;
-  position: absolute;
-  left: 80%;
-  top: 70%;
-  z-index: -1;
-  &:before {
-    content: "";
-    background-color: grey;
-    z-index: -1;
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-  }
-}
-
-.shape {
-  margin: 6px auto;
-}
-
-.shape,
-.shape::before,
-.shape::after {
-  display: block;
-  position: relative;
-  width: 160px;
-  height: 160px;
-  border-radius: 160px;
-}
-
-.shape,
-.shape::before {
-  border: 10px solid #f00;
-}
-
-.shape::before,
-.shape::after {
-  content: "";
-  background-color: rgba(255, 255, 255, 1);
-}
-
-.shape::before {
-  top: -10px;
-  left: -150px;
-}
-
-.shape::after {
-  top: -180px;
-}
