@@ -6792,7 +6792,11 @@ nav {
   .frame-three .frame-inner img,
   .frame-four .frame-inner img {
     position: relative;
-    width: 100%; }
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%; }
 
 @media all and (max-width: 767px) and (min-width: 320px) {
   /* keeps carousel full widget on smaller screens */
@@ -6886,32 +6890,35 @@ nav {
   .frame {
     height: 200px; }
   .caption {
-    width: 50%;
+    width: 60%;
     margin: 0;
     right: 0;
-    left: auto; }
+    left: auto;
+    padding: 0 100px 0; }
   .frame-three .frame-inner,
   .frame-four .frame-inner {
     margin: 0;
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 10px;
-    width: 50%;
+    width: 40%;
     height: 90%; }
     .frame-three .frame-inner img,
     .frame-four .frame-inner img {
       position: relative;
-      width: 100%; } }
+      width: 100%;
+      height: 100%; } }
 
 @media all and (min-width: 1200px) {
   .frame {
     height: 400px; }
-  .frame-inner {
+  .frame-one .frame-inner,
+  .frame-two .frame-inner {
     width: 90%;
-    height: 95%; }
-    .frame-inner img {
-      height: 100%;
-      width: 100% !important; }
+    height: 90%; }
+    .frame-one .frame-inner img,
+    .frame-two .frame-inner img {
+      width: 100%; }
   .frame-three .frame-inner,
   .frame-four .frame-inner {
     width: 90%;

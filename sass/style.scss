@@ -338,6 +338,10 @@ nav {
     img {
       position: relative;
       width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
     }
   }
 }
@@ -468,10 +472,11 @@ nav {
     height: 200px;
   }
   .caption {
-    width: 50%;
+    width: 60%;
     margin: 0;
     right: 0;
     left: auto;
+    padding: 0 100px 0;
   }
   .frame-three,
   .frame-four {
@@ -480,11 +485,12 @@ nav {
       margin-top: auto;
       margin-bottom: auto;
       margin-left: 10px;
-      width: 50%;
+      width: 40%;
       height: 90%;
       img {
         position: relative;
         width: 100%;
+        height: 100%;
       }
     }
   }
@@ -494,12 +500,15 @@ nav {
   .frame {
     height: 400px;
   }
-  .frame-inner {
-    width: 90%;
-    height: 95%;
-    img {
-      height: 100%;
-      width: 100% !important;
+  .frame-one,
+  .frame-two {
+    .frame-inner {
+      width: 90%;
+      height: 90%;
+      img {
+        width: 100%;
+//        height: 100%;
+      }
     }
   }
   .frame-three,
@@ -519,6 +528,6 @@ nav {
   .caption {
     bottom: 10% !important;
     margin: auto;
-    top:auto;
+    top: auto;
   }
 }
