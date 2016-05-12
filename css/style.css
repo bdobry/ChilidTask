@@ -6918,7 +6918,11 @@ nav {
     height: 90%; }
     .frame-one .frame-inner img,
     .frame-two .frame-inner img {
-      width: 100%; }
+      display: block;
+      max-width: 700px;
+      max-height: 100%;
+      width: auto;
+      height: auto; }
   .frame-three .frame-inner,
   .frame-four .frame-inner {
     width: 90%;
