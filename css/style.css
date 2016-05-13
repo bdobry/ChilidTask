@@ -6731,10 +6731,7 @@ nav {
     .frame:hover .frame-inner img {
       position: relative;
       width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      -webkit-border-radius: 50%;
-      -moz-border-radius: 50%; }
+      min-height: 100%; }
   .frame:hover .frame-inner:after {
     display: none; }
 
