@@ -15,10 +15,26 @@ $grey-dark: rgba(0, 0, 0, 0.6);
   pointer-events: none;
 }
 
-*:before,
-*:after {
-  -webkit-backface-visibility: hidden !important;
-  backface-visibility: hidden !important;
+// cuttin corner mixin variables
+$size: 30px;
+$none: none 0px transparent;
+$side: solid $size transparent;
+$corner: solid $size white;
+// cuttin corner mixin
+@mixin corner-cut ($t, $r, $b, $l, $bt, $br, $bb, $bl) {
+  position: absolute;
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l;
+  border-top: $bt;
+  border-right: $br;
+  border-bottom: $bb;
+  border-left: $bl;
+  width: 0px;
+  height: 0;
+  display: inline-block;
+  z-index: 1;
 }
 
 //* {
@@ -107,7 +123,12 @@ nav {
 .navbar {
   border-radius: 0 !important;
 }
-
+.navbar-brand {
+  padding-top: 5px;
+  img {
+    height: 40px;
+  }
+}
 .slide-up {
   position: fixed;
   bottom: -20px;
@@ -275,18 +296,30 @@ nav {
   width: 80%;
   height: 80%;
   overflow: hidden;
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 0px;
-    width: 0px;
-    border-left: 30px solid transparent;
-    border-top: 30px solid transparent;
-    border-bottom: 30px solid white;
-    border-right: 30px solid white;
+  .top-left {
+    @include corner-cut(0, auto, auto, 0, $none, $none, $side, $corner);
   }
+  .top-right {
+    @include corner-cut(0, 0, auto, auto, $none, $corner, $side, $none);
+  }
+  .bottom-right {
+    @include corner-cut(auto, 0, 0, auto, $side, $corner, $none, $none);
+  }
+  .bottom-left {
+    @include corner-cut(auto, auto, 0, 0, $none, $side, $corner, $none);
+  }
+  //  &:after {
+  //    content: '';
+  //    position: absolute;
+  //    bottom: 0;
+  //    right: 0;
+  //    height: 0px;
+  //    width: 0px;
+  //    border-left: 30px solid transparent;
+  //    border-top: 30px solid transparent;
+  //    border-bottom: 30px solid white;
+  //    border-right: 30px solid white;
+  //  }
   img {
     position: relative;
     width: 100%;
@@ -356,7 +389,8 @@ nav {
     width: 100%;
     height: 50%;
     z-index: 5;
-    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0), transparent), linear-gradient(to top right, rgba(255, 255, 255, 0.5) 50%, rgba(0, 0, 0, 0) 50%);
+    background: linear-gradient(-163deg, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.4) 0); // for IE9 + IE 10
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0), transparent), linear-gradient(to top right, rgba(255, 255, 255, 0.4) 50%, rgba(0, 0, 0, 0) 50%);
   }
 }
 
@@ -370,7 +404,8 @@ nav {
     width: 100%;
     height: 50%;
     z-index: 5;
-    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0), transparent), linear-gradient(to bottom right, rgba(255, 255, 255, 0.5) 50%, rgba(0, 0, 0, 0) 50%);
+    background: linear-gradient(-17deg, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.4) 0); // for IE9 + IE 10
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0), transparent), linear-gradient(to bottom right, rgba(255, 255, 255, 0.4) 50%, rgba(0, 0, 0, 0) 50%);
   }
 }
 
@@ -519,17 +554,26 @@ nav {
   }
   /* --- 4 frames tablet big --- */
   .frame {
-    height: 200px;
+    height: 230px;
+    .frame-inner {
+      width: 80%;
+      height: 80%;
+      top: 0;
+      //      border-radius: 50%;
+      //      -webkit-border-radius: 50%;
+      //      -moz-border-radius: 50%;
+      //      overflow: hidden;
+    }
     &:hover .frame-inner {
-      margin: 0;
-      margin-top: auto;
-      margin-bottom: auto;
-      margin-left: 10px;
-      width: 38%;
-      height: 90%;
+      position: relative;
+      overflow: hidden;
+      margin: auto;
+      padding-bottom: 32%;
+      width: 40%;
+      margin-top: 20px;
+      margin-left: 20px;
       img {
-        position: relative;
-        width: 100%;
+        display: block;
       }
     }
   }
@@ -589,8 +633,6 @@ nav {
       -moz-border-radius: 50%;
       img {
         display: block;
-        padding-bottom: 20px;
-        
       }
     }
   }
