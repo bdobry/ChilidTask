@@ -1,17 +1,17 @@
+/* --- Bartosz Dobry: Chilid website task--- */
+
 @import "bootstrap";
 @import "bootstrap/theme";
-//@font-face {
-//  font-family: 'Glyphicons Halflings';
-//  src: url(../fonts/glyphicons-halflings-regular.eot);
-//  src: url(../fonts/glyphicons-halflings-regular.eot) format("embedded-opentype"), url(../fonts/glyphicons-halflings-regular.woff2) format("woff2"), url(../fonts/glyphicons-halflings-regular.woff) format("woff"), url(../fonts/glyphicons-halflings-regular.ttf) format("truetype"), url(../fonts/glyphicons-halflings-regular.svg) format("svg");
-//}
+
+/* --- colors --- */
+
 $red: #c43434;
 $blue: #5096a5;
 $green: #508b61;
 $guld: #dfbb42;
 $grey: rgba(0, 0, 0, 0.1);
 $grey-dark: rgba(0, 0, 0, 0.6);
-//
+// mixin for content box styling
 @mixin content-box ($color) {
   border: 1px solid $color;
   display: inline-block;
@@ -40,9 +40,9 @@ $corner: solid $size white;
   z-index: 1;
 }
 
-//* {
-//  transition: all 0.2s ease;
-//}
+
+/* --- body starts here --- */
+
 body {
   min-width: 320px;
 }
@@ -100,7 +100,7 @@ body {
     display: inline-block;
     padding: 10px;
     color: white;
-    opacity: .7;
+    opacity: .6;
   }
   .active {
     opacity: 1;
@@ -198,7 +198,8 @@ nav {
   height: 60px;
   position: absolute;
   border: 1px solid white;
-  &:hover {
+  &:hover,
+  &:active {
     &:after {
       content: '';
       background-color: white;
@@ -226,7 +227,8 @@ nav {
   top: 0;
   left: 0;
   background: $blue;
-  &:hover {
+  &:hover,
+  &:active {
     border: 1px solid $blue;
     ~ .content-one {
       @include content-box($blue);
@@ -241,7 +243,8 @@ nav {
   top: 0;
   right: 0;
   background: $red;
-  &:hover {
+  &:hover,
+  &:active {
     border: 1px solid $red;
     ~ .content-two {
       @include content-box($red);
@@ -256,7 +259,8 @@ nav {
   bottom: 0;
   left: 0;
   background: $guld;
-  &:hover {
+  &:hover,
+  &:active {
     border: 1px solid $guld;
     ~ .content-three {
       @include content-box($guld);
@@ -271,7 +275,8 @@ nav {
   bottom: 0;
   right: 0;
   background: $green;
-  &:hover {
+  &:hover,
+  &:active {
     border: 1px solid $green;
     ~ .content-four {
       @include content-box($green);
@@ -302,7 +307,8 @@ nav {
     display: block;
     padding-bottom: 100%;
   }
-  &:hover {
+  &:hover,
+  &:active {
     .caption {
       display: block !important;
     }
@@ -374,7 +380,7 @@ nav {
   right: 0;
   width: 100%;
   font-size: 25px;
-  padding: 0 10% 0 10%;
+  padding: 0 12% 0 12%;
   span {
     display: inlin-block;
     background: rgba(255, 255, 255, 0.5);
@@ -523,7 +529,8 @@ nav {
   /* --- 4 frames mobile tablet --- */
   .frame {
     height: 200px;
-    &:hover .frame-inner {
+    &:hover .frame-inner,
+    &:active .frame-inner {
       margin: 0;
       margin-top: auto;
       margin-bottom: auto;
@@ -612,7 +619,8 @@ nav {
       //      -moz-border-radius: 50%;
       //      overflow: hidden;
     }
-    &:hover .frame-inner {
+    &:hover .frame-inner,
+    &:active .frame-inner {
       position: relative;
       overflow: hidden;
       margin: auto;
@@ -692,7 +700,8 @@ nav {
         width: auto;
       }
     }
-    &:hover .frame-inner {
+    &:hover .frame-inner,
+    &:active .frame-inner {
       position: relative;
       overflow: hidden;
       padding-bottom: 50%;
@@ -742,6 +751,15 @@ nav {
   padding: 0;
 }
 
+
+/* --- height adjust when navbar sticky --- */
+
 .height-adjust {
   margin-top: 30px;
 }
+
+
+/* --- LOONEY TUNES --- */
+
+
+/* --- That's all Folks! --- */
