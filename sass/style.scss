@@ -5,7 +5,10 @@
 //  src: url(../fonts/glyphicons-halflings-regular.eot);
 //  src: url(../fonts/glyphicons-halflings-regular.eot) format("embedded-opentype"), url(../fonts/glyphicons-halflings-regular.woff2) format("woff2"), url(../fonts/glyphicons-halflings-regular.woff) format("woff"), url(../fonts/glyphicons-halflings-regular.ttf) format("truetype"), url(../fonts/glyphicons-halflings-regular.svg) format("svg");
 //}
-$red: #D1212C;
+$red: #c43434;
+$blue: #5096a5;
+$green: #508b61;
+$guld: #dfbb42;
 $grey: rgba(0, 0, 0, 0.1);
 $grey-dark: rgba(0, 0, 0, 0.6);
 //
@@ -66,6 +69,7 @@ body {
 }
 
 .carousel-caption {
+  //  padding-top: 100px;
   top: 20%;
 }
 
@@ -73,6 +77,25 @@ body {
 /* --- carousel-indicators --- */
 
 .carousel-indicators {
+  #typo:before,
+  #rwd:before,
+  #ux:before {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-image: url(../img/typo.jpg);
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    display: block;
+    margin: auto;
+  }
+  #rwd:before {
+    background-image: url(../img/rwd.jpg);
+  }
+  #ux:before {
+    background-image: url(../img/ux.jpg);
+  }
   li {
     display: inline-block;
     padding: 10px;
@@ -91,25 +114,25 @@ body {
     width: 100%;
     height: 100%;
     display: block;
-    padding: 10px;
+    padding: 5px;
   }
 }
 
 #typo {
   span {
-    background: red;
+    background: $red;
   }
 }
 
 #rwd {
   span {
-    background: blue;
+    background: $blue;
   }
 }
 
 #ux {
   span {
-    background: green;
+    background: $green;
   }
 }
 
@@ -123,12 +146,14 @@ nav {
 .navbar {
   border-radius: 0 !important;
 }
+
 .navbar-brand {
   padding-top: 5px;
   img {
     height: 40px;
   }
 }
+
 .slide-up {
   position: fixed;
   bottom: -20px;
@@ -192,19 +217,22 @@ nav {
     position: absolute;
     top: 13px;
     left: 13px;
-    color: black;
-    padding: 5px;
+    color: white;
+    padding: 7px;
   }
 }
 
 .box-one {
   top: 0;
   left: 0;
-  background: blue;
+  background: $blue;
   &:hover {
-    border: 1px solid blue;
+    border: 1px solid $blue;
     ~ .content-one {
-      @include content-box(blue);
+      @include content-box($blue);
+    }
+    p {
+      color: $blue;
     }
   }
 }
@@ -212,11 +240,14 @@ nav {
 .box-two {
   top: 0;
   right: 0;
-  background: red;
+  background: $red;
   &:hover {
-    border: 1px solid red;
+    border: 1px solid $red;
     ~ .content-two {
-      @include content-box(red);
+      @include content-box($red);
+    }
+    p {
+      color: $red;
     }
   }
 }
@@ -224,11 +255,14 @@ nav {
 .box-three {
   bottom: 0;
   left: 0;
-  background: yellow;
+  background: $guld;
   &:hover {
-    border: 1px solid yellow;
+    border: 1px solid $guld;
     ~ .content-three {
-      @include content-box(yellow);
+      @include content-box($guld);
+    }
+    p {
+      color: $guld;
     }
   }
 }
@@ -236,11 +270,14 @@ nav {
 .box-four {
   bottom: 0;
   right: 0;
-  background: green;
+  background: $green;
   &:hover {
-    border: 1px solid green;
+    border: 1px solid $green;
     ~ .content-four {
-      @include content-box(green);
+      @include content-box($green);
+    }
+    p {
+      color: $green;
     }
   }
 }
@@ -249,7 +286,7 @@ nav {
 /* --- 4 frames --- */
 
 .frames {
-  background: grey;
+  background: url(../img/bg.jpg);
   padding-top: 40px;
   margin-bottom: 30px;
 }
@@ -345,23 +382,23 @@ nav {
 }
 
 .frame-one {
-  border-top: 10px solid dodgerblue;
-  color: dodgerblue;
+  border-top: 10px solid $blue;
+  color: $blue;
 }
 
 .frame-two {
-  border-top: 10px solid orange;
-  color: orange;
+  border-top: 10px solid #faad81;
+  color: #faad81;
 }
 
 .frame-three {
-  border-top: 10px solid darkseagreen;
-  color: darkseagreen;
+  border-top: 10px solid $green;
+  color: $green;
 }
 
 .frame-four {
-  border-top: 10px solid purple;
-  color: purple;
+  border-top: 10px solid #e5b6e7;
+  color: #e5b6e7;
 }
 
 
@@ -428,6 +465,11 @@ nav {
     li {
       display: block;
     }
+    #typo:before,
+    #rwd:before,
+    #ux:before {
+      display: none;
+    }
   }
   /* --- 4 boxes mobile --- */
   .outer {
@@ -471,14 +513,6 @@ nav {
       width: 32%;
     }
     .active {}
-  }
-  #typo:before {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 50px;
-    background: white;
-    display: inline-block;
   }
   .box-content {
     width: 100%;
@@ -545,6 +579,20 @@ nav {
 }
 
 @media all and (max-width: 1199px) and (min-width: 993px) {
+  .carousel-indicators {
+    width: 90%;
+    margin-left: -45%;
+    li {
+      width: 32%;
+    }
+    .active {}
+  }
+  .box-content {
+    width: 100%;
+    height: 62%;
+    left: 0;
+    top: 58px;
+  }
   /* --- 4 boxes tablet big --- */
   .box-content {
     width: 100%;
@@ -610,6 +658,28 @@ nav {
 /* --- desktop --- */
 
 @media all and (min-width: 1200px) {
+  .carousel-indicators {
+    width: 80%;
+    margin-left: -40%;
+    li {
+      display: inline-block;
+      width: 20%;
+      margin-right: 5%;
+      position: relative;
+    }
+    li:last-child {
+      margin-right: 0;
+    }
+    #typo:before,
+    #rwd:before,
+    #ux:before {
+      position: absolute;
+      display: block;
+      bottom: 0;
+      left: -35px;
+    }
+  }
+  /* --- 4 frames --- */
   .frame {
     height: 400px;
     .frame-inner {
@@ -670,4 +740,8 @@ nav {
 .col-clear {
   margin: 0;
   padding: 0;
+}
+
+.height-adjust {
+  margin-top: 30px;
 }
