@@ -93,6 +93,7 @@
       <div class="col-sm-12">
         <div class="outer">
           <div class="box box-one">
+            <div class="elemt"></div>
             <p><span>BOX NAME</span> 1</p>
           </div>
           <div class="box box-two">
@@ -164,7 +165,7 @@
 
       <div class="col-xs-12 col-sm-6 col-lg-4">
         <div class="triangle"></div>
-         <div class="img-button img-button-left">
+        <div class="img-button img-button-left">
           <img class="img-responsive" src="http://placehold.it/600x700/" alt="">
         </div>
       </div>
@@ -311,6 +312,10 @@
     //        $('.box-content2').fadeOut(1);
     //      });
     //    })
+
+    $(".box").click(function () {
+      $(this).slideUp();
+    });
   </script>
   <script>
     $('nav').affix({
